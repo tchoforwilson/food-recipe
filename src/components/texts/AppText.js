@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Platform, StyleSheet, Text } from "react-native";
 import defaultStyles from "../../configurations/styles";
 
 const AppText = ({ children, style, ...otherProps }) => {
@@ -12,9 +12,8 @@ const AppText = ({ children, style, ...otherProps }) => {
 
 const styles = StyleSheet.create({
   text: {
-    color: defaultStyles.COLORS.white,
+    color: defaultStyles.COLORS.black,
     fontSize: defaultStyles.THEMES.SIZES.base,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
 });
 
