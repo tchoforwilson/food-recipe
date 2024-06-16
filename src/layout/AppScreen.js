@@ -1,7 +1,9 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
+
+import defaulStyles from "../configurations/styles";
 
 const AppScreen = ({ children, style }) => {
   return (
@@ -15,7 +17,7 @@ const AppScreen = ({ children, style }) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: defaulStyles.COLORS.white,
     padding: 24,
     paddingTop: Constants.statusBarHeight,
   },
