@@ -57,7 +57,16 @@ const TrendingRecipeCard = ({ recipe, onPress, containerStyle }) => {
       onPress={onPress}
     >
       <Image source={recipe.image} resizeMode="cover" style={styles.image} />
-      <View style={styles.details}></View>
+      <View style={styles.details}>
+        <AppText
+          style={{
+            color: defaultStyles.COLORS.white,
+            ...defaultStyles.THEMES.FONTS.h4,
+          }}
+        >
+          {recipe.category}
+        </AppText>
+      </View>
       <AppText style={styles.text}>{recipe.category}</AppText>
 
       {/** Card Info */}
