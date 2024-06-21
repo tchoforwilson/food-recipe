@@ -110,8 +110,38 @@ const HomeScreen = ({ navigation }) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => <TrendingRecipeCard recipe={item} />}
+          renderItem={({ item, index }) => (
+            <TrendingRecipeCard
+              containerStyle={{
+                marginLeft: index == 0 ? defaultStyles.THEMES.SIZES.padding : 0,
+              }}
+              recipe={item}
+              onPress={navigation.navigate("Recipe", { recipe: item })}
+            />
+          )}
         />
+      </View>
+    );
+  };
+
+  const renderCategoryHeader = () => {
+    return (
+      <View style={styles.categoryHeaderContainer}>
+        <AppText
+          style={{ flex: 1, ...defaultStyles.THEMES.FONTS.headingSecondary }}
+        >
+          Categories
+        </AppText>
+        <TouchableOpacity>
+          <AppText
+            style={{
+              color: defaultStyles.COLORS.gray,
+              ...defaultStyles.THEMES.FONTS.body4,
+            }}
+          >
+            View All
+          </AppText>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -129,6 +159,7 @@ const HomeScreen = ({ navigation }) => {
             {renderSearchBar()}
             {renderRecipeCard()}
             {renderTrendingSection()}
+            {renderCategoryHeader()}
           </View>
         }
         renderItem={({ item }) => (
@@ -144,7 +175,6 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   header: {
     flexDirection: "row",
     marginHorizontal: defaultStyles.THEMES.SIZES.padding,
@@ -185,6 +215,11 @@ const styles = StyleSheet.create({
   recipeText: {
     flex: 1,
     paddingVertical: defaultStyles.THEMES.SIZES.radius,
+  },
+  categoryHeaderContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
   },
 });
 
