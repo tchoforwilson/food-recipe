@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TabIcon } from "../components/common";
 
-import { HomeScreen } from "../screens";
+import FeedNavigator from "./FeedNavigator";
+import { TabIcon } from "../components/common";
 import defaultStyles from "../configurations/styles";
+import { LoginScreen } from "../screens";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +20,7 @@ const AppNavigator = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={FeedNavigator}
         options={{
           tabBarIcon: ({ focused, size }) => (
             <TabIcon focused={focused} name="home" size={size} />
@@ -28,7 +29,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="Search"
-        component={HomeScreen}
+        component={LoginScreen}
         options={{
           tabBarIcon: ({ focused, size }) => (
             <TabIcon focused={focused} name="magnify" size={size} />
@@ -37,7 +38,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="Bookmark"
-        component={HomeScreen}
+        component={LoginScreen}
         options={{
           tabBarIcon: ({ focused, size }) => (
             <TabIcon focused={focused} name="bookmark" size={size} />
@@ -46,7 +47,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="Setting"
-        component={HomeScreen}
+        component={LoginScreen}
         options={{
           tabBarIcon: ({ focused, size }) => (
             <TabIcon focused={focused} name="settings" size={size} />
