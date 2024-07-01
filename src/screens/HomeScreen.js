@@ -116,7 +116,7 @@ const HomeScreen = ({ navigation }) => {
                 marginLeft: index == 0 ? defaultStyles.THEMES.SIZES.padding : 0,
               }}
               recipe={item}
-              onPress={navigation.navigate("Recipe", { recipe: item })}
+              onPress={() => navigation.navigate("Recipe", { recipe: item })}
             />
           )}
         />
