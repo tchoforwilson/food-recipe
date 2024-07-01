@@ -4,10 +4,11 @@ import { BlurView } from "expo-blur";
 import PropTypes from "prop-types";
 
 /**
- * @breif Render a blu view
+ * @breif Render a blur view
  * @param {JSX} children Children components or items
  * @param {Object} style Container style which applies to both Android and Ios
  * @param {String} bgColor Background color for Android
+ * @param {Any} otherProps Other properties for the blur view
  * @returns {JSX}
  */
 const AppBlurView = ({ children, style, bgColor, ...otherProps }) => {
@@ -20,7 +21,7 @@ const AppBlurView = ({ children, style, bgColor, ...otherProps }) => {
   );
 };
 
-AppBlurView.protoTypes = {
+AppBlurView.propTypes = {
   children: PropTypes.element.isRequired,
   style: PropTypes.object.isRequired,
   bgColor: PropTypes.string.isRequired,
