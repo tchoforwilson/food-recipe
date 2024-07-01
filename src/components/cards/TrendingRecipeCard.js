@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  View,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  Platform,
-} from "react-native";
-import { BlurView } from "expo-blur";
+import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
 
 import { AppText } from "../texts";
 import defaultStyles from "../../configurations/styles";
 import { Icon } from "../common";
+import { AppBlurView } from "../../layout";
 
 const RecipeCardDetails = ({ recipe }) => {
   return (
@@ -34,19 +28,14 @@ const RecipeCardDetails = ({ recipe }) => {
 };
 
 const RecipeCardInfo = ({ recipe }) => {
-  return Platform.OS === "ios" ? (
-    <BlurView tint="dark" style={styles.blurContainer}>
-      <RecipeCardDetails recipe={recipe} />
-    </BlurView>
-  ) : (
-    <View
-      style={{
-        ...styles.blurContainer,
-        backgroundColor: defaultStyles.COLORS.transparentDarkGray,
-      }}
+  return (
+    <AppBlurView
+      style={styles.blurContainer}
+      bgColor={defaultStyles.COLORS.transparentDarkGray}
+      tint="dark"
     >
       <RecipeCardDetails recipe={recipe} />
-    </View>
+    </AppBlurView>
   );
 };
 
